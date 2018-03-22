@@ -143,13 +143,19 @@ public class Box {
     public void setD(double d) {
         this.d = d;
     }
-    public void convert(){
+    public void convertToImp(){
         
         
-        weight*=0.4;
+        weight/=0.4;
         d/=2.5;
         w/=2.5;
         h/=2.5;
+    }
+    public void convertToMetric(){
+        weight*=0.4;
+        d*=2.5;
+        w*=2.5;
+        h*=2.5;
     }
 
     

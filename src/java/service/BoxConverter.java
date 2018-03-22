@@ -20,10 +20,15 @@ public class BoxConverter {
      * This is a sample web service operation
      * @param name
      */
-    @WebMethod(operationName = "hello")
-    public Box hello(@WebParam(name = "name") String name, @WebParam(name="id") int id, @WebParam(name="weight") double weight,@WebParam(name="w")double w,@WebParam(name="h") double h, @WebParam(name="d") double d) {
-        Box box = new Box(name,id,weight,w,h,d);
-        box.convert();
+    @WebMethod(operationName = "converter")
+    public Box hello(@WebParam(name = "name") String name, @WebParam(name="id") int id, @WebParam(name="weight") double weight,@WebParam(name="w")double w,@WebParam(name="h") double h, @WebParam(name="d") double d, @WebParam(name="unitType") String unitType) {
+       Box box = new Box(name,id,weight,w,h,d);
+        if(unitType.equals("metric")){        
+            box.convertToImp();
+        }
+        if(unitType.equals("imperial")){
+            box.convertToMetric();
+        }
         return box;
     }
 }
